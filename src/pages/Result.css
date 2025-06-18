@@ -1,0 +1,42 @@
+body {
+  background: linear-gradient(to bottom right, #fef9f9, #dbefff);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.result-container {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.result-container button {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.result-container button:hover {
+  background-color: #0e74c4;
+}

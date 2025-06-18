@@ -1,0 +1,48 @@
+.home-container {
+  background: linear-gradient(145deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 40px;
+  text-align: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.home-container h2 {
+  margin-bottom: 30px;
+}
+
+.home-container label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.home-container select {
+  width: 200px;
+  padding: 8px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.home-container button {
+  margin-top: 10px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.home-container button:hover {
+  background-color: #ff3360;
+}
