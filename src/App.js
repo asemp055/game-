@@ -5,7 +5,7 @@ import MemorizationScreen from './components/MemorizationScreen';
 import SelectionScreen from './components/SelectionScreen';
 import ResultsScreen from './components/ResultsScreen';
 import SplashScreen from './components/SplashScreen';
-import { generateRandomObjects, themes, levels } from './utils';
+import { generateRandomObjects, levels } from './utils';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('welcome');

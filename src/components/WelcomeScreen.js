@@ -6,6 +6,9 @@ const WelcomeScreen = ({ currentLevel, currentTheme, setCurrentLevel, setCurrent
   return (
     <div className="welcome-screen">
       <h1>MemoTrip</h1>
+      <div className="responsive-message">
+        Prêt pour un nouveau défi ?
+      </div>
       <div className="welcome-message">Bonjour Paul,<br />prêt pour un nouveau défi ?</div>
       
       <LevelSelector currentLevel={currentLevel} setCurrentLevel={setCurrentLevel} />
