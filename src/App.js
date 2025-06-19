@@ -4,6 +4,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 import MemorizationScreen from './components/MemorizationScreen';
 import SelectionScreen from './components/SelectionScreen';
 import ResultsScreen from './components/ResultsScreen';
+import SplashScreen from './components/SplashScreen';
 import { generateRandomObjects, themes, levels } from './utils';
 
 function App() {
@@ -13,6 +14,12 @@ function App() {
   const [objectsToMemorize, setObjectsToMemorize] = useState([]);
   const [selectedObjects, setSelectedObjects] = useState([]);
   const [score, setScore] = useState(0);
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onAnimationComplete={() => setShowSplash(false)} />;
+  }
+
 
   const startGame = () => {
     const objects = generateRandomObjects(currentLevel, currentTheme);
