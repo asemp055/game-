@@ -1,7 +1,10 @@
 body {
-  background: linear-gradient(to bottom right, #fef9f9, #dbefff);
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background-image: url('/background-pattern.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-attachment: fixed;
 }
 
 .result-container {
@@ -9,11 +12,12 @@ body {
   margin: 60px auto;
   text-align: center;
   padding: 40px;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.8s ease;
 }
+
 
 @keyframes fadeIn {
   from {
