@@ -1,9 +1,9 @@
-// src/pages/Home.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-<img src="/logo.jpg" alt="MemoTrip Logo" className="home-logo" />
+
+
 function Home() {
   const [level, setLevel] = useState('Débutant');
   const [theme, setTheme] = useState('Plage');

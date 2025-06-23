@@ -1,10 +1,13 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom right, #6a11cb, #2575fc);
-  min-height: 100vh;
-  color: white;
+  background-image: url('../assets/background-home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
+
 
 .home-container {
   display: flex;
@@ -14,7 +17,11 @@ body {
   padding-top: 40px;
   min-height: 100vh;
   text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
 }
+
+
 
 .home-logo {
   width: 120px;
@@ -70,14 +77,6 @@ button:hover {
   }
 }
 
-.home-container {
-  background: linear-gradient(145deg, #6a11cb, #2575fc);
-  color: white;
-  padding: 40px;
-  text-align: center;
-  height: 100vh;
-  font-family: 'Poppins', sans-serif;
-}
 
 .home-container h1 {
   font-size: 2.8rem;
