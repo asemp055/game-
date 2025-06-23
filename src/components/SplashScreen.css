@@ -1,0 +1,32 @@
+/* src/components/SplashScreen.css */
+.splash-container {
+  background: linear-gradient(to bottom right, #6e33c3, #3b82f6);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1s ease-in-out 2.2s forwards;
+}
+
+.splash-logo {
+  width: 150px;
+  animation: popIn 1s ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
