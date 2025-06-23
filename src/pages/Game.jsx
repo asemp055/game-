@@ -40,6 +40,8 @@ function Game() {
   const [choices, setChoices] = useState([]);
   const [selected, setSelected] = useState([]);
   const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [feedback, setFeedback] = useState({});
 
   useEffect(() => {
     let count = 4;
@@ -57,66 +59,81 @@ function Game() {
     const mixed = shuffle([...selectedItems, ...shuffle(others).slice(0, 4)]);
     setChoices(shuffle(mixed));
 
-    const timer = setTimeout(() => {
-      setShowItems(false);
-    }, 4000);
+    let timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setShowItems(false);
+        }
+        return prev - 1;
+      });
+    }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(timer);
   }, [theme, level]);
 
   const handleSelect = (item) => {
     if (selected.includes(item)) return;
+
+    const isCorrect = itemsToMemorize.some((obj) => obj.name === item.name);
+    if (isCorrect) setScore(score + 1);
     setSelected([...selected, item]);
-    if (itemsToMemorize.some((obj) => obj.name === item.name)) {
-      setScore(score + 1);
-    }
+    setFeedback({ ...feedback, [item.name]: isCorrect });
   };
 
   const handleFinish = () => {
     navigate('/result', { state: { score, total: itemsToMemorize.length } });
   };
 
- return (
-  <div className="game-wrapper">
-    <div className="container">
-      <h2>MemoTrip – Niveau {level}</h2>
-      <p>Thème : {theme}</p>
+  return (
+    <div className="game-wrapper">
+      <div className="container">
+        {showItems && (
+          <div className="game-header">
+            <div className="timer">⏱️ {timeLeft}s</div>
+          </div>
+        )}
+        <h2>MemoTrip – Niveau {level}</h2>
+        <p>Thème : {theme}</p>
 
-      {showItems ? (
-        <>
-          <p>Mémorise ces objets :</p>
-          <div className="grid">
-            {itemsToMemorize.map((item) => (
-              <div key={item.name} className="card highlight">
-                <span style={{ fontSize: '2rem' }}>{item.icon}</span><br />
-                <small>{item.name}</small>
-              </div>
-            ))}
-          </div>
-        </>
-      ) : (
-        <>
-          <p>Quels objets as-tu vu ?</p>
-          <div className="grid">
-            {choices.map((item) => (
-              <button
-                key={item.name}
-                className={`card ${selected.includes(item) ? 'selected' : ''}`}
-                onClick={() => handleSelect(item)}
-              >
-                <span style={{ fontSize: '2rem' }}>{item.icon}</span><br />
-                <small>{item.name}</small>
-              </button>
-            ))}
-          </div>
-          <button className="submit" onClick={handleFinish}>Valider mes choix</button>
-        </>
-      )}
+        {showItems ? (
+          <>
+            <p className="instruction">🧠 Mémorise les objets suivants pour ton voyage !</p>
+            <div className="grid">
+              {itemsToMemorize.map((item) => (
+                <div key={item.name} className="card highlight">
+                  <span style={{ fontSize: '2rem' }}>{item.icon}</span><br />
+                  <small>{item.name}</small>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <p>Quels objets as-tu vu ?</p>
+            <div className="grid">
+              {choices.map((item) => (
+                <button
+                  key={item.name}
+                  className={`card ${selected.includes(item)
+                    ? feedback[item.name]
+                      ? 'correct'
+                      : 'wrong'
+                    : ''}`}
+                  onClick={() => handleSelect(item)}
+                >
+                  <span style={{ fontSize: '2rem' }}>{item.icon}</span><br />
+                  <small>{item.name}</small>
+                </button>
+              ))}
+            </div>
+            <button className="submit" onClick={handleFinish}>Valider mes choix</button>
+            <div className="score">Score : {score} / {itemsToMemorize.length}</div>
+          </>
+        )}
+      </div>
     </div>
-  </div>
-);
-
-  
+  );
 }
 
 export default Game;

@@ -1,45 +1,54 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  background-attachment: fixed;
+.result-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #a18cd1, #fbc2eb);
 }
 
 .result-container {
-  max-width: 600px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: white;
+  padding: 40px 30px;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.8s ease;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
 }
 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.result-container h2 {
+  font-size: 2rem;
+  color: #4a148c;
 }
-.result-container button {
-  background-color: #2196f3;
+
+.result-container h3 {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.result-container p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.result-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.result-buttons button {
+  background-color: #4a90e2;
   color: white;
-  padding: 10px 24px;
   border: none;
-  font-size: 1rem;
   border-radius: 25px;
-  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.result-container button:hover {
-  background-color: #0e74c4;
+.result-buttons button:hover {
+  background-color: #357ab8;
 }

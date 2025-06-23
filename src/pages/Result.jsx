@@ -1,4 +1,3 @@
-// src/pages/Result.jsx
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Result.css';
@@ -9,36 +8,28 @@ function Result() {
   const score = state?.score || 0;
   const total = state?.total || 0;
 
-  const getMessage = () => {
-    const ratio = score / total;
-    if (ratio === 1) return "Excellent travail, tu n’as rien oublié !";
-    if (ratio >= 0.5) return "Pas mal ! Tu es presque prêt·e pour le voyage.";
-    return "Continue à t’entraîner, tu y arriveras !";
-  };
-
-  const handleReplay = () => {
-    navigate('/');
-  };
+  const percentage = score / total;
+  let stars = '⭐';
+  if (percentage >= 0.9) stars = '⭐⭐⭐';
+  else if (percentage >= 0.6) stars = '⭐⭐';
+  
+  const handleReplay = () => navigate('/game', { state });
+  const handleHome = () => navigate('/');
+  const handleChangeTheme = () => navigate('/');
 
   return (
-    <div
-      style={{
-        backgroundImage: "url('/background-pattern.png')",
-        backgroundRepeat: 'repeat',
-        backgroundSize: '200px',
-        backgroundAttachment: 'fixed',
-        minHeight: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '40px 0',
-      }}
-    >
+    <div className="result-wrapper">
       <div className="result-container">
-        <h2>Résultat du jeu 🎉</h2>
+        <h2>Bravo Aïcha 🎉</h2>
+        <p>Tu es prête pour ton voyage !</p>
+        <h3>{stars}</h3>
         <p>Tu as retrouvé <strong>{score}</strong> objets sur <strong>{total}</strong>.</p>
-        <p>{getMessage()}</p>
-        <button onClick={handleReplay}>Retour à l’accueil</button>
+
+        <div className="result-buttons">
+          <button onClick={handleReplay}>🔁 Rejouer</button>
+          <button onClick={handleChangeTheme}>🎨 Changer de thème</button>
+          <button onClick={handleHome}>❌ Quitter</button>
+        </div>
       </div>
     </div>
   );
