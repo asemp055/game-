@@ -243,6 +243,120 @@ h1 {
     font-size: 18px;
   }
 }
+/* Résultats conditionnels */
+.results-screen {
+  padding: 20px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.result-message {
+  font-size: 20px;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.result-message.error {
+  background-color: #FFEBEE;
+  color: #F44336;
+}
+
+.result-message.success {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+}
+
+.result-message.partial {
+  background-color: #E3F2FD;
+  color: #2196F3;
+}
+.memorization-screen {
+  padding: 20px;
+}
+
+.instruction {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.timer-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.timer-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #FF5722, #FF9800);
+  transition: width 1s linear;
+}
+
+.timer-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FF5722;
+}
+
+.memory-objects {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.ready-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ready-btn:hover {
+  background-color: #3e8e41;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
 
 @media (max-width: 480px) {
   /* Petits écrans (téléphones) */
